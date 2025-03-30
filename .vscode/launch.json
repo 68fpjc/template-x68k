@@ -1,0 +1,21 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/main.x.elf",
+            "stopAtEntry": true,
+            "cwd": "${workspaceRoot}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb-multiarch.exe",
+            "miDebuggerServerAddress": "com3",
+            "miDebuggerArgs": " -b 19200",
+            "preLaunchTask": "build"
+        }
+    ]
+}
