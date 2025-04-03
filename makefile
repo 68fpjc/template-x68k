@@ -52,7 +52,7 @@ release:
 	mkdir -p $(DISTDIR)
 	mv $(TARGET) $(DISTDIR)
 	pandoc -f markdown -t plain README.md | iconv -t cp932 >$(DISTDIR)/README.txt
-	cd $(DISTDIR) && 7z a $(PROGRAM)-$(VERSION).zip $(TARGET) README.txt
+	cd $(DISTDIR) && 7z a $(ARCHIVE) $(TARGET) README.txt
 	$(MAKE) clean
 
 # バージョン番号の更新
