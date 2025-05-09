@@ -13,6 +13,13 @@ static void print_help(void) {
 }
 
 /**
+ * @brief Displays help information message to standard error output.
+ */
+static void print_help_info(void) {
+  fprintf(stderr, "Try '" PROGRAM " --help' for more information.\n");
+}
+
+/**
  * @brief Processes command-line arguments and options,
  *  and executes the main functionality.
  */
@@ -34,6 +41,9 @@ int main(int argc, char *argv[]) {
       case 'v':
         printf(PROGRAM " " VERSION "\n");
         return 0;
+      case '?':
+        print_help_info();
+        return 1;
       default:
         return 1;
     }
@@ -42,6 +52,13 @@ int main(int argc, char *argv[]) {
   for (int i = optind; i < argc; i++) {
     printf("Non-option argument: %s\n", argv[i]);
   }
+  // 引数を使わない場合はこっち
+  //   // オプション以外の引数がある場合はエラーメッセージを表示して終了
+  //   if (optind < argc) {
+  //     fprintf(stderr, "%s: invalid argument -- %s\n", argv[0], argv[optind]);
+  //     print_help_info();
+  //     return 1;
+  //   }
 
   printf("Hello, World!\n");
   return 0;
